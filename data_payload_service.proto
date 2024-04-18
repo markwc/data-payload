@@ -1,0 +1,18 @@
+syntax = "proto3";
+package DRED;
+
+service DataPayloadService {
+    rpc SendDataPayload (DataPayload) returns (StatusResponse) {}
+}
+
+message DataPayload {
+    bytes payload = 1;
+    double center_frequency = 2;
+    uint64 start_time = 3;
+    float transmit_angle = 4;
+}
+
+message StatusResponse {
+    bool success = 1;
+    string message = 2;
+}
